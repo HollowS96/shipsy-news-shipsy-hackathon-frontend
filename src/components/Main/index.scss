@@ -1,0 +1,14 @@
+.app--main {
+  padding: 40px 80px;
+
+  .news-record {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-gap: 40px;
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+  }
+}

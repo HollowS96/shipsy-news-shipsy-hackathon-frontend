@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.scss";
+
+import { AppProvider } from "./context/app-context";
+import Nav from "./components/Nav";
+import Main from "./components/Main";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const App: React.FC = () => {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    fetch("http://be001674.ngrok.io/news/getAll")
+      .then(response => response.json())
+      .then(data => {
+        console.table(data);
+        setNews(data);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ErrorBoundary>
+      <AppProvider value={{ news }}>
+        <div className="shipsy-news">
+          <Nav />
+          <Main />
+        </div>
+      </AppProvider>
+    </ErrorBoundary>
   );
-}
+};
 
 export default App;

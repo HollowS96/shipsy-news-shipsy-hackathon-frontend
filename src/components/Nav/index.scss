@@ -1,0 +1,96 @@
+@import "../../static/sass/variables";
+
+.app--navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: $view-width;
+  margin: auto;
+  height: 60px;
+  overflow: hidden;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    img {
+      height: 60px;
+      transform: scale(1.2);
+    }
+  }
+
+  &__interaction {
+    display: flex;
+    align-items: center;
+
+    form {
+      position: relative;
+      input {
+        padding: 8px 36px 8px 10px;
+        border: 1px solid #bfbfbf;
+        border-radius: 3px;
+        width: 250px;
+
+        &:focus,
+        &:active {
+          outline: none;
+        }
+      }
+
+      .icon {
+        border: none;
+        font-size: 16px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #bfbfbf;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    list-style: none;
+    margin: 0 20px;
+
+    &-label {
+      button {
+        font-size: 14px;
+        border: none;
+        color: #595959;
+        cursor: pointer;
+
+        &:focus,
+        &:active {
+          outline: none;
+        }
+
+        &:hover {
+          color: #000000;
+        }
+      }
+
+      .divider {
+        width: 20px;
+        height: 100%;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 1px;
+          height: 100%;
+          background-color: #8c8c8c;
+          //   background-color: #595959;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    li ~ li {
+      padding-left: 20px;
+    }
+  }
+}
