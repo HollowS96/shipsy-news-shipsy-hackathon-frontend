@@ -17,6 +17,7 @@
       font-size: 12px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       .actions {
         $default-color: #8d8d8d;
@@ -26,6 +27,7 @@
         $twitter-hover: #55acee;
         $facebook-hover: #3b5999;
         display: flex;
+        align-items: center;
 
         .action ~ .action {
           margin-left: 15px;

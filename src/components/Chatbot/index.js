@@ -8,11 +8,19 @@ const Chatbot = () => {
 
   return (
     <div className="chatbot">
-      <button className="chatbot-btn" onClick={toggleChatBot}>
-        <i className="fas fa-comment-dots"></i>
+      <button
+        className={`chatbot-btn ${showChatbot ? "close" : ""}`}
+        onClick={toggleChatBot}
+      >
+        <span>
+          <i className="fas fa-comment-dots"></i>
+        </span>
+        <span>
+          <i className="fas fa-times"></i>
+        </span>
       </button>
       <iframe
-        className={`chatbot-window ${showChatbot ? "appear" : "hide"}`}
+        className={`chatbot-window ${showChatbot ? "appear" : ""}`}
         allow="microphone;"
         width="350"
         height="550"

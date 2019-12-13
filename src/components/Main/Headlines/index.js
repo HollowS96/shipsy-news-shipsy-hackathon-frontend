@@ -8,6 +8,14 @@ const Headlines = () => {
   const { highlights } = useContext(appContext);
   const [h1, h2, h3] = highlights;
 
+  // const headlineArticles = [h1, h2, h3].map(news => {
+  //   const { description } = news;
+
+  //   // const
+
+  //   return news;
+  // });
+
   const articles = [h1, h2, h3].map((data, index) => (
     <Article data={data} key={index} />
   ));

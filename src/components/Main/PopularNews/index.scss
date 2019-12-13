@@ -15,10 +15,29 @@
         font-size: 12px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         .actions {
+          display: flex;
+          align-items: center;
+
+          svg {
+            cursor: pointer;
+
+            g g {
+              fill: #8d8d8d;
+            }
+          }
+
           svg ~ svg {
             margin-left: 15px;
+          }
+
+          .like:hover g g {
+            fill: #ff4d4f;
+          }
+          .comment:hover g g {
+            fill: #4d4d4d;
           }
         }
       }

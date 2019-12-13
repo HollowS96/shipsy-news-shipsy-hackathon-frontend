@@ -32,10 +32,10 @@ const PopularNews = () => {
             <span className="published-since">{publishedTime}</span>
             <div className="actions">
               <Like
-                className="action like"
+                className="like"
                 onClick={likeAndShareHandler("like", id)}
               />
-              <Comment className="action comment" />
+              <Comment className="comment" />
             </div>
           </div>
         </div>
