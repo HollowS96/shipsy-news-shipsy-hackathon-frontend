@@ -15,6 +15,58 @@
     &__interaction {
       color: #424242;
       font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+
+      .actions {
+        $default-color: #8d8d8d;
+        $like-hover: #ff4d4f;
+        $comment-hover: #4d4d4d;
+        $linkedin-hover: #0077b5;
+        $twitter-hover: #55acee;
+        $facebook-hover: #3b5999;
+        display: flex;
+
+        .action ~ .action {
+          margin-left: 15px;
+        }
+
+        svg {
+          cursor: pointer;
+
+          g g {
+            fill: $default-color;
+          }
+
+          &.linkedin,
+          &.twitter,
+          &.facebook {
+            g g {
+              fill: none;
+              stroke: $default-color;
+            }
+          }
+
+          &.like:hover g g {
+            fill: $like-hover;
+          }
+          &.comment:hover g g {
+            fill: #4d4d4d;
+          }
+          &.linkedin:hover g g {
+            stroke: $linkedin-hover;
+            fill: $linkedin-hover;
+          }
+          &.twitter:hover g g {
+            stroke: $twitter-hover;
+            fill: $twitter-hover;
+          }
+          &.facebook:hover g g {
+            stroke: $facebook-hover;
+            fill: $facebook-hover;
+          }
+        }
+      }
     }
   }
 

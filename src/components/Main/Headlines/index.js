@@ -5,11 +5,10 @@ import Article from "../Article";
 import appContext from "../../../context/app-context";
 
 const Headlines = () => {
-  const { news } = useContext(appContext);
-  const [a1, a2, a3] = news;
-  const newsArticles = [a1, a2, a3];
+  const { highlights } = useContext(appContext);
+  const [h1, h2, h3] = highlights;
 
-  const articles = newsArticles.map((data, index) => (
+  const articles = [h1, h2, h3].map((data, index) => (
     <Article data={data} key={index} />
   ));
 

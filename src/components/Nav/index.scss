@@ -1,6 +1,9 @@
 @import "../../static/sass/variables";
 
 .app--navigation {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,23 +30,32 @@
       input {
         padding: 8px 36px 8px 10px;
         border: 1px solid #bfbfbf;
-        border-radius: 3px;
+        border-radius: 5px;
         width: 250px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 1px;
 
         &:focus,
         &:active {
           outline: none;
+          border-color: #222;
+          // border: 1px solid #555;
+          // background-color: #eee;
+          // border-color: #1890ff;
         }
       }
 
-      .icon {
-        border: none;
+      svg.icon {
         font-size: 16px;
         position: absolute;
         right: 10px;
         top: 50%;
         transform: translateY(-50%);
-        color: #bfbfbf;
+
+        g g {
+          fill: #bfbfbf;
+        }
       }
     }
   }
@@ -54,10 +66,12 @@
     margin: 0 20px;
 
     &-label {
+      a,
       button {
-        font-size: 14px;
         border: none;
+        font-size: 14px;
         color: #595959;
+        text-decoration: none;
         cursor: pointer;
 
         &:focus,

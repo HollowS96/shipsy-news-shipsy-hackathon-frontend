@@ -1,0 +1,27 @@
+.popular-news {
+  &__article {
+    margin-bottom: 30px;
+    &-image {
+      height: 100px;
+      background-size: cover;
+      border-radius: 10px;
+    }
+
+    &-description {
+      margin: 12px 0;
+
+      &__interaction {
+        color: #424242;
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+
+        .actions {
+          svg ~ svg {
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+}

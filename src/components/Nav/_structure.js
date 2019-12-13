@@ -6,30 +6,27 @@ export const types = {
 export const listData = [
   {
     type: types.LINK,
-    label: "Rates"
+    label: "Rates",
+    link: "/rates"
   },
   {
     type: types.LINK,
-    label: "Track"
+    label: "Track",
+    link: "/track"
   },
   {
     type: types.LINK,
-    label: "Execution"
+    label: "Execution",
+    link: "execution"
   },
   {
     type: types.LINK,
-    label: "Billing"
+    label: "Billing",
+    link: "billing"
   },
   {
     type: types.DIVIDER,
-    label: ""
-  },
-  {
-    type: types.LINK,
-    label: "Login"
-  },
-  {
-    type: types.LINK,
-    label: "Signup"
+    label: "",
+    link: ""
   }
 ];

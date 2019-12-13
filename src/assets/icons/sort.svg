@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="10px" viewBox="0 0 14 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>sort</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage" transform="translate(-925.000000, -592.000000)">
+            <g id="Group-10" transform="translate(132.000000, 585.000000)">
+                <g id="Group-11" transform="translate(791.000000, 3.000000)">
+                    <g id="Group-2-Copy-5">
+                        <g id="sort">
+                            <g id="ic_sort">
+                                <polygon id="Bounds" points="0 0 18 0 18 18 0 18"></polygon>
+                                <path d="M2.25,13.5 L6.75,13.5 L6.75,12 L2.25,12 L2.25,13.5 L2.25,13.5 Z M2.25,4.5 L2.25,6 L15.75,6 L15.75,4.5 L2.25,4.5 L2.25,4.5 Z M2.25,9.75 L11.25,9.75 L11.25,8.25 L2.25,8.25 L2.25,9.75 L2.25,9.75 Z" id="Shape" fill="#424242"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

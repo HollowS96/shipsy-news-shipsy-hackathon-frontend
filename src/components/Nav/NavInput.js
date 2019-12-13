@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 
 const NavInput = () => {
   const submitHandler = e => {
@@ -7,9 +8,7 @@ const NavInput = () => {
   return (
     <form onSubmit={submitHandler}>
       <input type="text" />
-      <button className="icon">
-        <i className="fas fa-search"></i>
-      </button>
+      <SearchIcon className="icon" />
     </form>
   );
 };
