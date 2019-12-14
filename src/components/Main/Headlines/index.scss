@@ -8,4 +8,23 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 48px;
   }
+
+  .placeholder {
+    * {
+      background-color: #e8e8e8;
+      border-radius: 10px;
+    }
+
+    &.vertical {
+      .placeholder--image {
+        height: 225px;
+      }
+
+      .placeholder--description {
+        background-color: #e8e8e8;
+        height: 130px;
+        margin-top: 8px;
+      }
+    }
+  }
 }

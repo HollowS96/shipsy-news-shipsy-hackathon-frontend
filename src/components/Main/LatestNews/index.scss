@@ -64,4 +64,30 @@
       transition: $transition;
     }
   }
+
+  .placeholder {
+    display: flex;
+
+    * {
+      background-color: #e8e8e8;
+      border-radius: 10px;
+    }
+
+    .placeholder--image {
+      height: 150px;
+      width: 300px;
+    }
+
+    .placeholder--description {
+      flex: 1;
+      height: 130px;
+      margin-left: 24px;
+    }
+  }
+
+  .placeholder ~ .placeholder {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #d9d9d9;
+  }
 }

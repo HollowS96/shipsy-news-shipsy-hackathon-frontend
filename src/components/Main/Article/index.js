@@ -7,10 +7,10 @@ import { ReactComponent as Comment } from "../../../assets/icons/comment.svg";
 import { ReactComponent as Linkedin } from "../../../assets/icons/linkedin.svg";
 import { ReactComponent as Twitter } from "../../../assets/icons/twitter.svg";
 import { ReactComponent as Facebook } from "../../../assets/icons/facebook.svg";
+import Placeholder from "./Placeholder";
 
 const Article = ({ data, alignHorizontal }) => {
   const embedClass = alignHorizontal ? "horizontal" : "vertical";
-  if (!data) return null;
 
   const {
     id,
@@ -23,12 +23,12 @@ const Article = ({ data, alignHorizontal }) => {
 
   const likeAndShareHandler = type => () => {
     hitDb(type);
-    shareNews(type);
+    // shareNews(type);
   };
 
   const hitDb = type => {
     axios
-      .post("http://be001674.ngrok.io/comments/updateLikesAndShare", {
+      .post("http://shipodailyapi.shipsy.in/comments/updateLikesAndShare", {
         articleId: id,
         type
       })
@@ -36,28 +36,26 @@ const Article = ({ data, alignHorizontal }) => {
       .catch(err => console.log(err));
   };
 
-  const shareNews = type => {
-    let link = "";
-    if (type === "linkedin") {
-      link = `https://www.linkedin.com/shareArticle?mini=true&url=${articleLink}`;
-    } else if (type === "facebook") {
-      link = `https://www.facebook.com/sharer/sharer.php?u=${articleLink}`;
-    } else if (type === "twitter") {
-      link = `https://twitter.com/share?url=${articleLink}`;
-    }
-    hitSocialPlatform(link);
-  };
+  // const shareNews = type => {
+  //   let link = "";
+  //   if (type === "linkedin") {
+  //     link = `https://www.linkedin.com/shareArticle?mini=true&url=${articleLink}`;
+  //   } else if (type === "facebook") {
+  //     link = `https://www.facebook.com/sharer/sharer.php?u=${articleLink}`;
+  //   } else if (type === "twitter") {
+  //     link = `https://twitter.com/share?url=${articleLink}`;
+  //   }
+  //   hitSocialPlatform(link);
+  // };
 
-  const hitSocialPlatform = link => {
-    axios
-      .get(link)
-      .then(data => {
-        console.log(data);
-      })
-      .catch(err => console.log(err));
-  };
-
-  const hitFacebook = () => {};
+  // const hitSocialPlatform = link => {
+  //   axios
+  //     .get(link)
+  //     .then(data => {
+  //       console.log(data);
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
   return (
     <article className={`news-article ${embedClass}`}>

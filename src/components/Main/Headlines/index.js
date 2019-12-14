@@ -3,22 +3,28 @@ import "./index.scss";
 
 import Article from "../Article";
 import appContext from "../../../context/app-context";
+import Placeholder from "../Article/Placeholder";
 
 const Headlines = () => {
-  const { highlights } = useContext(appContext);
-  const [h1, h2, h3] = highlights;
+  const { headlines } = useContext(appContext);
 
-  // const headlineArticles = [h1, h2, h3].map(news => {
-  //   const { description } = news;
+  const getHeadlines = headlines => {
+    return headlines.map((data, index) => <Article data={data} key={index} />);
+  };
 
-  //   // const
+  const getPlaceholder = () => {
+    return (
+      <>
+        <Placeholder />
+        <Placeholder />
+        <Placeholder />
+      </>
+    );
+  };
 
-  //   return news;
-  // });
-
-  const articles = [h1, h2, h3].map((data, index) => (
-    <Article data={data} key={index} />
-  ));
+  const articles = headlines.length
+    ? getHeadlines(headlines)
+    : getPlaceholder();
 
   return (
     <div className="headlines">
