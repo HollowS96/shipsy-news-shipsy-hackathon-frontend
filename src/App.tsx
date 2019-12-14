@@ -21,8 +21,8 @@ const App: React.FC = () => {
 
   useEffect(() => {
     fetchHeadlines();
-    // fetchNews();
-    // fetchPopularNews();
+    fetchNews();
+    fetchPopularNews();
   }, []);
 
   const fetchHeadlines = async () => {

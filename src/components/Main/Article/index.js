@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import * as moment from "moment";
 import "./index.scss";
 
 import { ReactComponent as Like } from "../../../assets/icons/like.svg";
@@ -20,6 +21,8 @@ const Article = ({ data, alignHorizontal, toggleComment }) => {
     articleLink,
     publishedTime
   } = data;
+
+  const publishedAt = moment(publishedTime).fromNow();
 
   const commentHandler = () => toggleComment(id);
 
@@ -71,7 +74,7 @@ const Article = ({ data, alignHorizontal, toggleComment }) => {
         <h4>{title}</h4>
         <p>{description}</p>
         <div className="news-article--description__interaction">
-          <span className="published-since">{publishedTime}</span>
+          <span className="published-since">{publishedAt}</span>
           <div className="actions">
             <Like
               className="action like"

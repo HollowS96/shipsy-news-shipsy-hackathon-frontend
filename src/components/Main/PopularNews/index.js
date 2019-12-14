@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import * as moment from "moment";
 import "./index.scss";
 
 import appContext from "../../../context/app-context";
@@ -17,6 +18,9 @@ const PopularNews = ({ toggleComment }) => {
       articleLink,
       publishedTime
     } = article;
+
+    const publishedAt = moment(publishedTime).fromNow();
+
     if (imageLink.includes("/g.foolcdn.com/")) return acc;
     return acc.concat(
       <article key={index} className="popular-news__article">
@@ -29,7 +33,7 @@ const PopularNews = ({ toggleComment }) => {
         <div className="popular-news__article-description">
           <h4>{title}</h4>
           <div className="popular-news__article-description__interaction">
-            <span className="published-since">{publishedTime}</span>
+            <span className="published-since">{publishedAt}</span>
             <div className="actions">
               <Like
                 className="like"
