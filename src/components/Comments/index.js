@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./index.scss";
 
-const Comments = ({ open, toggle }) => {
+const Comments = ({ open, toggle, articleId }) => {
+  const [comment, setComment] = useState("");
+
+  useEffect(() => {
+    if (open) {
+      axios
+        .get("https://shipodailyapi.shipsy.in/comments/getAll", {
+          params: { articleId }
+        })
+        .then(({ data }) => {
+          console.log(data);
+        })
+        .catch(err => console.error(err));
+    } else {
+      setComment("");
+    }
+  }, [open]);
+
   const submitHandler = () => {
     alert("adding comment...");
+  };
+
+  const inputChangeHandler = e => {
+    setComment(e.target.value);
   };
 
   return (
@@ -16,7 +38,8 @@ const Comments = ({ open, toggle }) => {
         </div>
         <div className="comments-body">
           <form onSubmit={submitHandler}>
-            <textarea>Hello</textarea>
+            <textarea value={comment} onChange={inputChangeHandler}></textarea>
+            <button>Comment</button>
           </form>
         </div>
       </div>

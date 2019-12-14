@@ -9,20 +9,24 @@ import Comments from "../Comments";
 
 const Main = () => {
   const [showModal, setShowModal] = useState(false);
+  const [articleId, setArticleId] = useState(null);
 
-  const toggleModal = () => setShowModal(!showModal);
+  const toggleModal = id => {
+    setShowModal(!showModal);
+    setArticleId(articleId ? null : id);
+  };
 
   return (
     <>
       <main className="app--main">
-        <Headlines />
+        <Headlines toggleComment={toggleModal} />
         <Divider />
         <div className="news-record">
-          <LatestNews />
-          <PopularNews />
+          <LatestNews toggleComment={toggleModal} />
+          <PopularNews toggleComment={toggleModal} />
         </div>
       </main>
-      <Comments open={showModal} toggle={toggleModal} />
+      <Comments open={showModal} toggle={toggleModal} articleId={articleId} />
     </>
   );
 };

@@ -5,11 +5,13 @@ import Article from "../Article";
 import appContext from "../../../context/app-context";
 import Placeholder from "../Article/Placeholder";
 
-const Headlines = () => {
+const Headlines = ({ toggleComment }) => {
   const { headlines } = useContext(appContext);
 
   const getHeadlines = headlines => {
-    return headlines.map((data, index) => <Article data={data} key={index} />);
+    return headlines.map((data, index) => (
+      <Article data={data} key={index} toggleComment={toggleComment} />
+    ));
   };
 
   const getPlaceholder = () => {

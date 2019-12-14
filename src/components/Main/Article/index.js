@@ -9,7 +9,7 @@ import { ReactComponent as Twitter } from "../../../assets/icons/twitter.svg";
 import { ReactComponent as Facebook } from "../../../assets/icons/facebook.svg";
 import Placeholder from "./Placeholder";
 
-const Article = ({ data, alignHorizontal }) => {
+const Article = ({ data, alignHorizontal, toggleComment }) => {
   const embedClass = alignHorizontal ? "horizontal" : "vertical";
 
   const {
@@ -20,6 +20,8 @@ const Article = ({ data, alignHorizontal }) => {
     articleLink,
     publishedTime
   } = data;
+
+  const commentHandler = () => toggleComment(id);
 
   const likeAndShareHandler = type => () => {
     hitDb(type);
@@ -75,7 +77,7 @@ const Article = ({ data, alignHorizontal }) => {
               className="action like"
               onClick={likeAndShareHandler("like")}
             />
-            <Comment className="action comment" />
+            <Comment className="action comment" onClick={commentHandler} />
             <Linkedin
               className="action linkedin"
               onClick={likeAndShareHandler("linkedin")}

@@ -7,12 +7,19 @@ import appContext from "../../../context/app-context";
 import Article from "../Article";
 import { ReactComponent as SortIcon } from "../../../assets/icons/sort.svg";
 
-const LatestNews = () => {
+const LatestNews = ({ toggleComment }) => {
   const { news, fetchNews, isFetchingNews } = useContext(appContext);
 
   const getNews = news => {
     return news.map((data, index) => {
-      return <Article key={index} data={data} alignHorizontal />;
+      return (
+        <Article
+          key={index}
+          data={data}
+          alignHorizontal
+          toggleComment={toggleComment}
+        />
+      );
     });
   };
 

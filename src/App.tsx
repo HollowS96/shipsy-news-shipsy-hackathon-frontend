@@ -21,14 +21,14 @@ const App: React.FC = () => {
 
   useEffect(() => {
     fetchHeadlines();
-    fetchNews();
-    fetchPopularNews();
+    // fetchNews();
+    // fetchPopularNews();
   }, []);
 
   const fetchHeadlines = async () => {
     try {
       const { data: news } = await axios.get(
-        "http://shipodailyapi.shipsy.in/news/headlines"
+        "https://shipodailyapi.shipsy.in/news/headlines"
       );
       const headlines = updateHeadlines(news);
       setHeadlines(headlines);
@@ -41,7 +41,7 @@ const App: React.FC = () => {
     setIsFetchingNews(true);
     try {
       const { data: articles } = await axios.get(
-        "http://shipodailyapi.shipsy.in/news/getAll",
+        "https://shipodailyapi.shipsy.in/news/getAll",
         {
           params: {
             currentPageNumber: pageIndex
@@ -60,7 +60,7 @@ const App: React.FC = () => {
   const fetchPopularNews = async () => {
     try {
       const { data: news } = await axios.get(
-        "http://shipodailyapi.shipsy.in/news/popular"
+        "https://shipodailyapi.shipsy.in/news/popular"
       );
       setPopularNews(news);
     } catch (err) {
@@ -72,7 +72,7 @@ const App: React.FC = () => {
 
   const likeAndShareHandler = (type: any, id: number) => () => {
     axios
-      .post("http://shipodailyapi.shipsy.in/comments/updateLikesAndShare", {
+      .post("https://shipodailyapi.shipsy.in/comments/updateLikesAndShare", {
         articleId: id,
         type
       })

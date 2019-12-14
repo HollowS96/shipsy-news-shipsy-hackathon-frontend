@@ -5,7 +5,7 @@ import appContext from "../../../context/app-context";
 import { ReactComponent as Like } from "../../../assets/icons/like.svg";
 import { ReactComponent as Comment } from "../../../assets/icons/comment.svg";
 
-const PopularNews = () => {
+const PopularNews = ({ toggleComment }) => {
   const { popularNews, likeAndShareHandler } = useContext(appContext);
 
   const articles = popularNews.reduce((acc, article, index) => {
@@ -35,7 +35,7 @@ const PopularNews = () => {
                 className="like"
                 onClick={likeAndShareHandler("like", id)}
               />
-              <Comment className="comment" />
+              <Comment className="comment" onClick={toggleComment} />
             </div>
           </div>
         </div>
