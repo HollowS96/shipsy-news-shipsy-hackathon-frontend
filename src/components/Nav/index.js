@@ -2,6 +2,7 @@ import React from "react";
 import "./index.scss";
 
 import logo from "../../assets/images/logo.webp";
+import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import { listData } from "./_structure";
 import NavItems from "./NavItems";
 import NavInput from "./NavInput";
@@ -17,7 +18,8 @@ const Nav = () => {
     <nav className="app--navigation">
       <div className="app--navigation__logo">
         <Link to="/">
-          <img src={logo} alt="logo" />
+          {/* <img src={logo} alt="logo" /> */}
+          <Logo />
         </Link>
       </div>
       <div className="app--navigation__interaction">

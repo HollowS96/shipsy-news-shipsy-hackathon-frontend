@@ -13,11 +13,18 @@
   overflow: hidden;
 
   &__logo {
+    height: 34px;
     display: flex;
     align-items: center;
-    img {
-      height: 60px;
-      transform: scale(1.2);
+
+    a {
+      display: flex;
+      align-items: center;
+
+      svg {
+        transform-origin: left center;
+        transform: scale(1.2);
+      }
     }
   }
 

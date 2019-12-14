@@ -8,16 +8,19 @@ const Comments = ({ open, toggle, articleId }) => {
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [noComments, setNoComments] = useState(false);
 
   useEffect(() => {
-    if (open && !comment) {
+    if (open && !commentList.length && !noComments) {
       axios
         .get("https://shipodailyapi.shipsy.in/comments/getAll", {
           params: { articleId }
         })
         .then(({ data }) => {
-          console.log(data);
-          setCommentList(data);
+          if (!data.length) setNoComments(true);
+          else {
+            setCommentList(data);
+          }
         })
         .catch(err => console.error(err));
     } else {
@@ -47,6 +50,7 @@ const Comments = ({ open, toggle, articleId }) => {
         ]);
         setComment("");
         setIsSubmitting(false);
+        setNoComments(false);
       })
       .catch(err => {
         console.log(err);
@@ -58,13 +62,21 @@ const Comments = ({ open, toggle, articleId }) => {
     setComment(e.target.value);
   };
 
+  const modalToggleHandler = () => {
+    toggle();
+    setNoComments(false);
+  };
+
   return (
     <div className={`comments-modal ${open ? "show" : ""}`}>
-      <div className="comments-modal__backdrop" onClick={toggle}></div>
+      <div
+        className="comments-modal__backdrop"
+        onClick={modalToggleHandler}
+      ></div>
       <div className="comments-modal__pannel">
         <div className="comments-header">
           <h2>Comments</h2>
-          <i className="fas fa-times" onClick={toggle}></i>
+          <i className="fas fa-times" onClick={modalToggleHandler}></i>
         </div>
         <div className="comments-body">
           <form onSubmit={submitHandler}>
@@ -75,7 +87,11 @@ const Comments = ({ open, toggle, articleId }) => {
             ></textarea>
             <button disabled={isSubmitting}>Comment</button>
           </form>
-          <PreviousChat chat={commentList} />
+          {noComments ? (
+            <div className="no-comments-added">No comments yet!</div>
+          ) : (
+            <PreviousChat chat={commentList} />
+          )}
         </div>
       </div>
     </div>

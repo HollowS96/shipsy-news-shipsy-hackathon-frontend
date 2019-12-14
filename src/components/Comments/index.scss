@@ -167,3 +167,12 @@
   display: flex;
   justify-content: center;
 }
+
+.no-comments-added {
+  position: relative;
+  top: 20px;
+  text-align: center;
+  padding: 20px;
+  border: 1px dashed #bbb;
+  color: #777;
+}
