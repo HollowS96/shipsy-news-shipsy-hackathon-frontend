@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.scss";
 
 import Divider from "../../utils/Divider/Divider";
@@ -8,6 +8,10 @@ import PopularNews from "./PopularNews";
 import Comments from "../Comments";
 
 const Main = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => setShowModal(!showModal);
+
   return (
     <>
       <main className="app--main">
@@ -18,7 +22,7 @@ const Main = () => {
           <PopularNews />
         </div>
       </main>
-      {/* <Comments /> */}
+      <Comments open={showModal} toggle={toggleModal} />
     </>
   );
 };

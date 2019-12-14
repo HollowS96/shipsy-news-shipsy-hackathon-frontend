@@ -28,7 +28,7 @@ const Article = ({ data, alignHorizontal }) => {
 
   const hitDb = type => {
     axios
-      .post("http://shipodailyapi.shipsy.in/comments/updateLikesAndShare", {
+      .post("https://shipodailyapi.shipsy.in/comments/updateLikesAndShare", {
         articleId: id,
         type
       })
